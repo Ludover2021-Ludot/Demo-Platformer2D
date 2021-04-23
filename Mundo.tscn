@@ -33,7 +33,6 @@ points = PoolVector2Array( 0, 0, 8, 0, 8, 8, 0, 8 )
 
 [node name="Jugador" parent="." instance=ExtResource( 2 )]
 position = Vector2( 140.423, 480.364 )
-script = null
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2( 0.0994723, -0.116782 )
