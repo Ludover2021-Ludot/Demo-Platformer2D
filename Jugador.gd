@@ -16,8 +16,6 @@ func _physics_process(delta):
 	motion.y += GRAVITY
 	var friction = false
 	
-	# print("hola mundo!")
-	
 	if Input.is_action_pressed("ui_right"):
 		sprite.flip_h = true
 		animation.play("Walk")
