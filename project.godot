@@ -22,6 +22,10 @@ config/icon="res://icon.png"
 
 window/size/width=800
 
+[global]
+
+filter=false
+
 [input]
 
 accion_principal={
@@ -34,6 +38,12 @@ accion_secundaria={
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":67,"unicode":0,"echo":false,"script":null)
  ]
 }
+
+[layer_names]
+
+2d_physics/layer_1="Jugador"
+2d_physics/layer_2="Escenario"
+2d_physics/layer_3="Enemigos"
 
 [rendering]
 

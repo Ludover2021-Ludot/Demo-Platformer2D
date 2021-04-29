@@ -1,7 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://texture/Tocho.png" type="Texture" id=1]
 [ext_resource path="res://Jugador.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Robotito.tscn" type="PackedScene" id=3]
+[ext_resource path="res://TileMap.gd" type="Script" id=4]
+[ext_resource path="res://Gravedad.gd" type="Script" id=5]
+[ext_resource path="res://Mundo.gd" type="Script" id=6]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 8, 0, 8, 8, 0, 8 )
@@ -30,6 +34,7 @@ points = PoolVector2Array( 0, 0, 8, 0, 8, 8, 0, 8 )
 0/z_index = 0
 
 [node name="Mundo" type="Node2D"]
+script = ExtResource( 6 )
 
 [node name="Jugador" parent="." instance=ExtResource( 2 )]
 position = Vector2( 140.423, 480.364 )
@@ -39,5 +44,15 @@ position = Vector2( 0.0994723, -0.116782 )
 scale = Vector2( 5, 5 )
 tile_set = SubResource( 2 )
 cell_size = Vector2( 8, 8 )
+collision_layer = 2
+collision_mask = 0
 format = 1
 tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 17, 0, 0, 18, 0, 0, 65536, 0, 0, 65554, 0, 0, 131072, 0, 0, 131090, 0, 0, 196608, 0, 0, 196626, 0, 0, 262144, 0, 0, 262162, 0, 0, 327680, 0, 0, 327698, 0, 0, 393216, 0, 0, 393229, 0, 0, 393230, 0, 0, 393231, 0, 0, 393234, 0, 0, 458752, 0, 0, 458770, 0, 0, 524288, 0, 0, 524306, 0, 0, 589824, 0, 0, 589842, 0, 0, 655360, 0, 0, 655368, 0, 0, 655369, 0, 0, 655370, 0, 0, 655378, 0, 0, 720896, 0, 0, 720914, 0, 0, 786432, 0, 0, 786450, 0, 0, 851968, 0, 0, 851969, 0, 0, 851970, 0, 0, 851971, 0, 0, 851972, 0, 0, 851973, 0, 0, 851974, 0, 0, 851975, 0, 0, 851976, 0, 0, 851977, 0, 0, 851978, 0, 0, 851979, 0, 0, 851980, 0, 0, 851981, 0, 0, 851982, 0, 0, 851983, 0, 0, 851984, 0, 0, 851985, 0, 0, 851986, 0, 0 )
+script = ExtResource( 4 )
+
+[node name="Robotito" parent="." instance=ExtResource( 3 )]
+position = Vector2( 668.426, 473.118 )
+collision_layer = 0
+
+[node name="Gravedad" type="Node2D" parent="."]
+script = ExtResource( 5 )
