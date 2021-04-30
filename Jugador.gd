@@ -47,10 +47,12 @@ func _physics_process(delta):
 
 func efecto_gravitatorio():
 	motion.y += gravedad.gravedad()
-	sprite.flip_v = gravedad.esta_de_cabeza()
+	self.scale.y = gravedad.y()
+	#self.flip_v = gravedad.esta_de_cabeza()
 
 func mori():
-	queue_free()
+	get_tree().reload_current_scene()
+	#queue_free()
 
 func _on_Area2D_area_entered(enemigo):
 	self.mori()

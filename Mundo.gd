@@ -10,6 +10,7 @@ extends Node2D
 func _ready():
 	$Jugador.gravedad = $Gravedad
 	$Robotito.gravedad = $Gravedad
+	$Robotito2.gravedad = $Gravedad
 	pass # Replace with function body.
 
 
