@@ -12,10 +12,22 @@ onready var animation = $AnimationPlayer
 var motion = Vector2(0, 0)
 var gravedad
 
+onready var Disparo = preload("res://Campo de gravedad.tscn")
+
 func _physics_process(delta):
 	efecto_gravitatorio()
 	var friction = false
 	current_main_action_cooldown = max(0, current_main_action_cooldown - delta)
+	
+	if Input.is_action_just_pressed("disparo"):
+		var disparo = Disparo.instance()
+		disparo.position = self.position
+		get_tree().get_current_scene().add_child(disparo)
+		if(sprite.flip_h):
+			disparo.motion = Vector2(1, 0)
+		else:
+			disparo.motion = Vector2(-1, 0)
+			
 	
 	if Input.is_action_pressed("accion_principal"):
 		if(current_main_action_cooldown <= 0):
