@@ -64,5 +64,12 @@ collision_mask = 6
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 4 )
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 220.251, -207.516 )
+current = true
+limit_left = 0
+limit_top = 0
+limit_bottom = 0
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
