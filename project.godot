@@ -21,6 +21,12 @@ config/icon="res://icon.png"
 [display]
 
 window/size/width=800
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
+
+[global]
+
+display=false
 
 [global]
 
