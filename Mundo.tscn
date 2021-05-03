@@ -11,7 +11,7 @@ script = ExtResource( 6 )
 personajes = [ NodePath("Jugador"), NodePath("Robotito"), NodePath("Robotito2") ]
 
 [node name="Jugador" parent="." instance=ExtResource( 2 )]
-position = Vector2( 139.951, 480.364 )
+position = Vector2( 112.521, 465.403 )
 
 [node name="Robotito" parent="." instance=ExtResource( 3 )]
 position = Vector2( 2907.78, 460.893 )

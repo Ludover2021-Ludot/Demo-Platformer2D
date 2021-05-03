@@ -68,7 +68,6 @@ anims/Idle = SubResource( 2 )
 anims/Walk = SubResource( 3 )
 
 [node name="Area vulnerable" type="Area2D" parent="."]
-visible = false
 collision_mask = 4
 script = ExtResource( 6 )
 
@@ -76,7 +75,6 @@ script = ExtResource( 6 )
 shape = SubResource( 4 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
-visible = false
 position = Vector2( 220.251, -207.516 )
 current = true
 limit_left = 0
@@ -84,13 +82,11 @@ limit_top = 0
 limit_bottom = 0
 
 [node name="Area de activacion" type="Area2D" parent="."]
-visible = false
 collision_layer = 8
 collision_mask = 0
 script = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area de activacion"]
-visible = false
 position = Vector2( 0.636414, 2.15909 )
 shape = SubResource( 5 )
 

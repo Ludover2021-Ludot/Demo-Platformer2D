@@ -24,6 +24,9 @@ onready var Disparo = preload("res://Campo de gravedad.tscn")
 func _ready():
 	gravedad = Gravedad.instance()
 
+func porcentaje_main_action_cooldown():
+	return current_main_action_cooldown / main_action_cooldown
+
 func _physics_process(delta):
 	efecto_gravitatorio()
 	var friction = false
