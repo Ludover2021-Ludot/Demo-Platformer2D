@@ -40,7 +40,7 @@ extents = Vector2( 3729.19, 23.1114 )
 script = ExtResource( 6 )
 
 [node name="Jugador" parent="." instance=ExtResource( 2 )]
-position = Vector2( 140.423, 480.364 )
+position = Vector2( 139.951, 480.364 )
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2( 0.0994723, -0.116782 )

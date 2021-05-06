@@ -6,9 +6,12 @@ const MAX_SPEED = 300
 const JUMP_H = -900
 const UP = Vector2(0,-1)
 const main_action_cooldown = 1
-var current_main_action_cooldown = 0
+
 onready var sprite = $Sprite
 onready var animation = $AnimationPlayer
+onready var rueda = $Rueda
+
+var current_main_action_cooldown = 0
 var motion = Vector2(0, 0)
 var gravedad
 
@@ -56,6 +59,7 @@ func _physics_process(delta):
 			motion.x = lerp(motion.x, 0, 0.01)
 
 	motion = move_and_slide(motion, UP)
+	rueda.te_moviste_a(self.position, sprite.flip_h)
 
 func efecto_gravitatorio():
 	motion.y += gravedad.gravedad()
