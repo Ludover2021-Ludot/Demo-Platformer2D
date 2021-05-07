@@ -1,11 +1,13 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://texture/Jugador.png" type="Texture" id=1]
 [ext_resource path="res://Rueda.gd" type="Script" id=2]
 [ext_resource path="res://texture/wheel.png" type="Texture" id=3]
 [ext_resource path="res://Jugador.gd" type="Script" id=4]
+[ext_resource path="res://Area de activacion.gd" type="Script" id=5]
+[ext_resource path="res://Area vulnerable.gd" type="Script" id=6]
 
-[sub_resource type="CircleShape2D" id=6]
+[sub_resource type="CircleShape2D" id=1]
 radius = 38.64
 
 [sub_resource type="Animation" id=2]
@@ -52,7 +54,7 @@ script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 0.142761 )
-shape = SubResource( 6 )
+shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( -0.139244, -75.685 )
@@ -68,6 +70,7 @@ anims/Walk = SubResource( 3 )
 [node name="Area vulnerable" type="Area2D" parent="."]
 visible = false
 collision_mask = 4
+script = ExtResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area vulnerable"]
 shape = SubResource( 4 )
@@ -84,6 +87,7 @@ limit_bottom = 0
 visible = false
 collision_layer = 8
 collision_mask = 0
+script = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area de activacion"]
 visible = false
@@ -95,4 +99,5 @@ position = Vector2( 0.057992, -0.0146952 )
 scale = Vector2( 0.596446, 0.596446 )
 texture = ExtResource( 3 )
 script = ExtResource( 2 )
+
 [connection signal="area_entered" from="Area vulnerable" to="." method="_on_Area2D_area_entered"]
