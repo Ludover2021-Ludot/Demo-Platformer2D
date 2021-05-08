@@ -11,11 +11,18 @@ onready var sprite = $Sprite
 onready var animation = $AnimationPlayer
 onready var rueda = $Rueda
 
+var nivel
+
 var current_main_action_cooldown = 0
 var motion = Vector2(0, 0)
+
 var gravedad
 
+onready var Gravedad = preload("res://Gravedad.tscn")
 onready var Disparo = preload("res://Campo de gravedad.tscn")
+
+func _ready():
+	gravedad = Gravedad.instance()
 
 func _physics_process(delta):
 	efecto_gravitatorio()
@@ -34,7 +41,7 @@ func _physics_process(delta):
 	
 	if Input.is_action_pressed("accion_principal"):
 		if(current_main_action_cooldown <= 0):
-			gravedad.cambiar()
+			nivel.invertirGravedadGlobal()
 			current_main_action_cooldown = main_action_cooldown
 	
 	if Input.is_action_pressed("ui_right"):
@@ -72,3 +79,6 @@ func mori():
 
 func _on_Area2D_area_entered(enemigo):
 	self.mori()
+	
+func invertirGravedad():
+	gravedad.cambiar()
