@@ -75,7 +75,6 @@ script = ExtResource( 6 )
 shape = SubResource( 4 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 220.251, -207.516 )
 current = true
 limit_left = 0
 limit_top = 0
