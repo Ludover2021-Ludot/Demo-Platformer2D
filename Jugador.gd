@@ -20,14 +20,13 @@ var gravedad
 
 onready var Gravedad = preload("res://Gravedad.tscn")
 var sentidoADondeMiraSegunCaminar = Vector2(DERECHA, 0)
-var sentidoADondeMiraSegunGravedad = Vector2(DERECHA, 0)
 
 var rotacionAlEstarDeCabeza = PI
 
 enum {IZQUIERDA = -1, DERECHA = 1}
 
 func sentidoEnElQueMira():
-	return (sentidoADondeMiraSegunCaminar * sentidoADondeMiraSegunGravedad).x
+	return (sentidoADondeMiraSegunCaminar * gravedad.y()).x
 
 func mirarEnSentidoCorrecto():
 	sprite.flip_h = sentidoEnElQueMira() == DERECHA
@@ -53,10 +52,10 @@ func _physics_process(delta):
 
 	if Input.is_action_pressed("accion_principal"):
 		if(current_main_action_cooldown <= 0):
-			nivel.invertirGravedadGlobal()
-			if(gravedad.esta_de_cabeza()):
-				self.rotation = -(PI * sentidoADondeMiraSegunCaminar.x)
 			rotacionAlEstarDeCabeza = PI * sentidoADondeMiraSegunCaminar.x
+			if(gravedad.esta_de_cabeza()):
+				self.rotation = rotacionAlEstarDeCabeza
+			nivel.invertirGravedadGlobal()
 			current_main_action_cooldown = main_action_cooldown
 
 	if Input.is_action_pressed("ui_right"):
@@ -87,7 +86,6 @@ func _physics_process(delta):
 func efecto_gravitatorio():
 	motion.y += gravedad.gravedad()
 	var tazaDeRotacion = 0.08
-	sentidoADondeMiraSegunGravedad.x = gravedad.y()
 	if(gravedad.esta_de_cabeza()):
 		self.rotation = lerp(self.rotation, rotacionAlEstarDeCabeza, tazaDeRotacion)
 	else:
