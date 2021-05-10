@@ -7,8 +7,9 @@
 [ext_resource path="res://Area de activacion.gd" type="Script" id=5]
 [ext_resource path="res://Area vulnerable.gd" type="Script" id=6]
 
-[sub_resource type="CircleShape2D" id=1]
-radius = 38.64
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 19.4176
+height = 37.7636
 
 [sub_resource type="Animation" id=2]
 resource_name = "Idle"
@@ -42,8 +43,9 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3 ]
 }
 
-[sub_resource type="CircleShape2D" id=4]
-radius = 36.9499
+[sub_resource type="CapsuleShape2D" id=4]
+radius = 20.4767
+height = 35.3597
 
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 570.596, 407.585 )
@@ -57,8 +59,8 @@ position = Vector2( 0, 0.142761 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( -0.139244, -75.685 )
-scale = Vector2( 5, 5 )
+position = Vector2( 0, -24 )
+scale = Vector2( 2.35135, 2.35135 )
 texture = ExtResource( 1 )
 hframes = 4
 
@@ -75,23 +77,26 @@ script = ExtResource( 6 )
 shape = SubResource( 4 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
+visible = false
 current = true
 limit_left = 0
 limit_top = 0
 limit_bottom = 0
 
 [node name="Area de activacion" type="Area2D" parent="."]
+visible = false
 collision_layer = 8
 collision_mask = 0
 script = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area de activacion"]
+visible = false
 position = Vector2( 0.636414, 2.15909 )
 shape = SubResource( 5 )
 
 [node name="Rueda" type="Sprite" parent="."]
-position = Vector2( 0.057992, -0.0146952 )
-scale = Vector2( 0.596446, 0.596446 )
+position = Vector2( 0, 16.937 )
+scale = Vector2( 0.33158, 0.33158 )
 texture = ExtResource( 3 )
 script = ExtResource( 2 )
 
