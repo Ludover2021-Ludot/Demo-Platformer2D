@@ -1,10 +1,17 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://texture/Jugador.png" type="Texture" id=1]
-[ext_resource path="res://Jugador.gd" type="Script" id=2]
+[ext_resource path="res://Rueda.gd" type="Script" id=2]
+[ext_resource path="res://texture/wheel.png" type="Texture" id=3]
+[ext_resource path="res://Jugador.gd" type="Script" id=4]
+[ext_resource path="res://Area de activacion.gd" type="Script" id=5]
+[ext_resource path="res://Area vulnerable.gd" type="Script" id=6]
+[ext_resource path="res://texture/Estrellas.png" type="Texture" id=7]
+[ext_resource path="res://texture/Nebula.png" type="Texture" id=8]
 
-[sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 25.5, 32 )
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 19.4176
+height = 37.7636
 
 [sub_resource type="Animation" id=2]
 resource_name = "Idle"
@@ -38,22 +45,24 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3 ]
 }
 
-[sub_resource type="CircleShape2D" id=4]
-radius = 36.9499
+[sub_resource type="CapsuleShape2D" id=4]
+radius = 20.4767
+height = 35.3597
 
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 570.596, 407.585 )
 
 [node name="Jugador" type="KinematicBody2D"]
 collision_mask = 6
-script = ExtResource( 2 )
+script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 8 )
-shape = SubResource( 6 )
+position = Vector2( 0, 0.142761 )
+shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 5, 5 )
+position = Vector2( 0, -24 )
+scale = Vector2( 2.35135, 2.35135 )
 texture = ExtResource( 1 )
 hframes = 4
 
@@ -63,29 +72,50 @@ anims/Idle = SubResource( 2 )
 anims/Walk = SubResource( 3 )
 
 [node name="Area vulnerable" type="Area2D" parent="."]
-visible = false
 collision_mask = 4
+script = ExtResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area vulnerable"]
-visible = false
 shape = SubResource( 4 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 visible = false
-position = Vector2( 220.251, -207.516 )
 current = true
 limit_left = 0
 limit_top = 0
 limit_bottom = 0
 
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Camera2D"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Camera2D/ParallaxBackground"]
+motion_scale = Vector2( 0.1, 0 )
+motion_mirroring = Vector2( 1280, 0 )
+
+[node name="Estrellas" type="Sprite" parent="Camera2D/ParallaxBackground/ParallaxLayer"]
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 7 )
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="Camera2D/ParallaxBackground"]
+motion_scale = Vector2( 0.05, 0 )
+motion_mirroring = Vector2( 700, 0 )
+
+[node name="Nebulosa" type="Sprite" parent="Camera2D/ParallaxBackground/ParallaxLayer2"]
+texture = ExtResource( 8 )
+
 [node name="Area de activacion" type="Area2D" parent="."]
 visible = false
 collision_layer = 8
 collision_mask = 0
+script = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area de activacion"]
 visible = false
 position = Vector2( 0.636414, 2.15909 )
 shape = SubResource( 5 )
 
+[node name="Rueda" type="Sprite" parent="."]
+position = Vector2( 0, 16.937 )
+scale = Vector2( 0.33158, 0.33158 )
+texture = ExtResource( 3 )
+script = ExtResource( 2 )
 [connection signal="area_entered" from="Area vulnerable" to="." method="_on_Area2D_area_entered"]

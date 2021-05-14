@@ -10,10 +10,11 @@ onready var sprite = $Sprite
 var gravedad
 var prendido = false
 
+onready var Gravedad = preload("res://Gravedad.tscn")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
+	gravedad = Gravedad.instance()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
@@ -34,4 +35,7 @@ func prenderse():
 	prendido = true
 
 func _on_Area_area_entered(area):
-	self.prenderse()
+	area.chocasteConRobot(self)
+	
+func invertirGravedad():
+	gravedad.cambiar()
