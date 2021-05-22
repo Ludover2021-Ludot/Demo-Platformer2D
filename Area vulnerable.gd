@@ -21,6 +21,11 @@ func chocaste_con_trampolin(direccion):
 	var personaje = get_parent()
 	personaje.invertirGravedad()
 	personaje.empujar(direccion)
+	
+func tocaste_el_boton():
+	var piso = get_tree().get_root().get_node("NivelVertical/TileMap2")
+	if(piso):
+		piso.queue_free()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
