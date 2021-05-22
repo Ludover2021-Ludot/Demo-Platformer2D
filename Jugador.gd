@@ -3,6 +3,7 @@ extends KinematicBody2D
 # Constantes
 const ACELERATION = 70
 const MAX_SPEED = 300
+const MAX_FREEFALL_SPEED = 900
 const JUMP_H = -900
 const UP = Vector2(0,-1)
 const main_action_cooldown = 1
@@ -84,7 +85,7 @@ func _physics_process(delta):
 	rueda.te_moviste_a(self.position, sprite.flip_h)
 
 func efecto_gravitatorio():
-	motion.y += gravedad.gravedad()
+	motion.y = clamp(motion.y + gravedad.gravedad(), -MAX_FREEFALL_SPEED, MAX_FREEFALL_SPEED)
 	var tazaDeRotacion = 0.08
 	if(gravedad.esta_de_cabeza()):
 		self.rotation = lerp(self.rotation, rotacionAlEstarDeCabeza, tazaDeRotacion)
