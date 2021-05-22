@@ -1,4 +1,4 @@
-extends Area2D
+extends Node2D
 
 
 # Declare member variables here. Examples:
@@ -11,16 +11,11 @@ func _ready():
 	pass # Replace with function body.
 
 
-func chocasteConRobot(robotito):
-	get_parent().mori()
-
-func chocaste_con_lava(lava):
-	get_parent().mori()
-
-func chocaste_con_trampolin(direccion):
-	var personaje = get_parent()
-	personaje.invertirGravedad()
-	personaje.empujar(direccion)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+export(Vector2) var direccion
+
+func _on_Area2D_area_entered(area):
+	area.chocaste_con_trampolin(direccion)
+
