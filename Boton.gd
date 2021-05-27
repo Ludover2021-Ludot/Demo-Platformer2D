@@ -18,3 +18,4 @@ func _ready():
 
 func _on_Area2D_area_entered(area):
 	area.tocaste_el_boton()
+	self.queue_free()
