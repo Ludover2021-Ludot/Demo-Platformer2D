@@ -1,8 +1,8 @@
 [gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://texture/Jugador.png" type="Texture" id=1]
+[ext_resource path="res://texture/Cabeza.png" type="Texture" id=1]
 [ext_resource path="res://Rueda.gd" type="Script" id=2]
-[ext_resource path="res://texture/wheel.png" type="Texture" id=3]
+[ext_resource path="res://texture/Cuerpo.png" type="Texture" id=3]
 [ext_resource path="res://Jugador.gd" type="Script" id=4]
 [ext_resource path="res://Area de activacion.gd" type="Script" id=5]
 [ext_resource path="res://Area vulnerable.gd" type="Script" id=6]
@@ -16,7 +16,7 @@ height = 37.7636
 [sub_resource type="Animation" id=2]
 resource_name = "Idle"
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/path = NodePath("Cabeza:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -33,16 +33,16 @@ resource_name = "Walk"
 length = 4.0
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/path = NodePath("Cabeza:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1, 2, 3 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ 0, 1, 2, 3 ]
+"values": [ 0, 1 ]
 }
 
 [sub_resource type="CapsuleShape2D" id=4]
@@ -59,12 +59,6 @@ script = ExtResource( 4 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 0.142761 )
 shape = SubResource( 1 )
-
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 0, -24 )
-scale = Vector2( 2.35135, 2.35135 )
-texture = ExtResource( 1 )
-hframes = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 playback_speed = 9.0
@@ -100,6 +94,7 @@ motion_scale = Vector2( 0.05, 0 )
 motion_mirroring = Vector2( 700, 0 )
 
 [node name="Nebulosa" type="Sprite" parent="Camera2D/ParallaxBackground/ParallaxLayer2"]
+position = Vector2( 90.4475, -65.83 )
 texture = ExtResource( 8 )
 
 [node name="Area de activacion" type="Area2D" parent="."]
@@ -114,8 +109,15 @@ position = Vector2( 0.636414, 2.15909 )
 shape = SubResource( 5 )
 
 [node name="Rueda" type="Sprite" parent="."]
-position = Vector2( 0, 16.937 )
-scale = Vector2( 0.33158, 0.33158 )
+position = Vector2( 0.242988, 15.3598 )
+scale = Vector2( 0.484756, 0.460317 )
 texture = ExtResource( 3 )
 script = ExtResource( 2 )
+
+[node name="Cabeza" type="Sprite" parent="."]
+position = Vector2( 0.321457, -8.56146 )
+scale = Vector2( 0.639595, 0.639595 )
+texture = ExtResource( 1 )
+hframes = 2
+frame = 1
 [connection signal="area_entered" from="Area vulnerable" to="." method="_on_Area2D_area_entered"]

@@ -7,7 +7,7 @@ const JUMP_H = -900
 const UP = Vector2(0,-1)
 const main_action_cooldown = 1
 
-onready var sprite = $Sprite
+onready var sprite = $Cabeza
 onready var animation = $AnimationPlayer
 onready var rueda = $Rueda
 
