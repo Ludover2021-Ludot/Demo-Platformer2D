@@ -77,11 +77,15 @@ tile_data = PoolIntArray( -3932160, 0, 0, -3932159, 0, 0, -3932158, 0, 0, -39321
 [node name="HUD" parent="." instance=ExtResource( 4 )]
 
 [node name="Trampolin" parent="." instance=ExtResource( 5 )]
-position = Vector2( 472, 400 )
+position = Vector2( 464, 552 )
+direccion = Vector2( 0, 1 )
+
+[node name="Trampolin4" parent="." instance=ExtResource( 5 )]
+position = Vector2( 576, 552 )
 direccion = Vector2( 0, 1 )
 
 [node name="Trampolin2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 507.939, 1580.06 )
+position = Vector2( 560, -408 )
 direccion = Vector2( 0, -1 )
 
 [node name="Trampolin3" parent="." instance=ExtResource( 5 )]
