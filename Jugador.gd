@@ -89,7 +89,16 @@ func _physics_process(delta):
 
 	mirarEnSentidoCorrecto()
 	motion = move_and_slide(motion, UP)
+	chequear_si_esta_tocando_pinches()
 	rueda.te_moviste_a(self.position, sprite.flip_h)
+
+func chequear_si_esta_tocando_pinches():
+	var slide_count = get_slide_count()
+	if slide_count:
+		var collision = get_slide_collision(slide_count - 1)
+		var danger = collision.collider.is_in_group("Danger")
+		if(danger):
+			mori()
 
 func efecto_gravitatorio():
 	motion.y += gravedad.gravedad()
