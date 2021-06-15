@@ -6,7 +6,6 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 [node name="Trampolin" type="Node2D"]
-position = Vector2( 519.253, 397.782 )
 script = ExtResource( 2 )
 
 [node name="Area2D" type="Area2D" parent="."]

@@ -5,11 +5,10 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 
-[node name="Boton" type="Node"]
+[node name="Boton" type="Node2D"]
 script = ExtResource( 2 )
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2( 768, 504 )
 scale = Vector2( 3.08, 3.28 )
 collision_layer = 16
 
@@ -17,7 +16,6 @@ collision_layer = 16
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 768, 504 )
 texture = ExtResource( 1 )
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
