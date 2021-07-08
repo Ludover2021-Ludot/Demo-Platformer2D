@@ -1,4 +1,4 @@
-extends TileMap
+extends Node2D
 
 
 # Declare member variables here. Examples:
@@ -14,3 +14,8 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+export(Vector2) var direccion
+
+func _on_Area2D_area_entered(area):
+	area.chocaste_con_trampolin(direccion)
+

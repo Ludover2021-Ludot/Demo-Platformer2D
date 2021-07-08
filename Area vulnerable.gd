@@ -14,6 +14,14 @@ func _ready():
 func chocasteConRobot(robotito):
 	get_parent().mori()
 
+func chocaste_con_lava(lava):
+	get_parent().mori()
+
+func chocaste_con_trampolin(direccion):
+	var personaje = get_parent()
+	personaje.invertirGravedad()
+	personaje.empujar(direccion)
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
