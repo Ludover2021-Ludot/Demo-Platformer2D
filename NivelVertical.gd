@@ -23,6 +23,7 @@ func _ready():
 		$Puerta7.toggle()
 		$Puerta8.toggle()
 		
+		$TransicionNivel.next = "NivelVertical.tscn"
 		#$Jugador/Camera2D.zoom *= 0.9	
 
 func _process(delta):

@@ -8,6 +8,7 @@ func _ready():
 	$Jugador/Camera2D.limit_bottom = 550
 	$Jugador.nivel = self
 	$HUD/TextureRect/PanelCooldownGravedad.jugador = $Jugador
+	$TransicionNivel.next = "NivelVertical.tscn"
 	
 func invertirGravedadGlobal():
 	for personaje in personajes:

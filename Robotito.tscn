@@ -53,5 +53,4 @@ shape = SubResource( 2 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -2.24494, 0 )
 shape = SubResource( 3 )
-
 [connection signal="area_entered" from="Area" to="." method="_on_Area_area_entered"]
