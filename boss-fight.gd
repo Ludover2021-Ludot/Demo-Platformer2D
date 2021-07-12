@@ -16,10 +16,12 @@ func _ready():
 	
 func spawn_robotito(robotito):
 	personajes_spawneados.push_back(robotito)
+	print("Robotitos en el nivel: " + str(personajes_spawneados.size()))
 	self.add_child(robotito)
-	
+
 func despawn_robotito(robotito):
 	personajes_spawneados.erase(robotito)
+	print("Robotitos en el nivel: " + str(personajes_spawneados.size()))
 	self.remove_child(robotito)
 	
 func desaparecer_spawns():
@@ -27,9 +29,13 @@ func desaparecer_spawns():
 		spawn.desaparecer()
 		
 #TODO: Por alguna razon no explotan todos los robotitos. Ya probe varias maneras
+#
 func limpiar_escenario():
 	self.desaparecer_spawns()
 	$Boss.desaparecer()
+	
+func planificar_limpieza():
+	$Timer.start()
 	
 func spawn_explosion_en(posicion):
 	var explosion = Explosion.instance()
@@ -48,3 +54,7 @@ func _on_Explosion_animation_finished(explosion):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+
+func _on_Timer_timeout():
+	self.limpiar_escenario()

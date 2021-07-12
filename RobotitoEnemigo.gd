@@ -52,6 +52,7 @@ func invertirGravedad():
 	gravedad.cambiar()
 	
 func desaparecer():
+	print("TENGO QUE DESAPARECER")
 	self.explotar()
 
 func explotar():

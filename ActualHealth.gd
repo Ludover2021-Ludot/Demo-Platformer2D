@@ -14,6 +14,9 @@ func perder_vida(vida_perdida):
 	$Timer.start()
 	if(value == 0):
 		boss.morir()
+		
+func tiene_vida():
+	return value > 0
 
 func _on_Timer_timeout():
 	set_process(true)

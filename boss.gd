@@ -6,7 +6,7 @@ extends Node2D
 # var b = "text"
 
 var current_summon_cd = 0
-const summon_cd = 5
+const summon_cd = 3
 
 var direccion = 1
 
@@ -41,13 +41,17 @@ func crear_robotito():
 		get_tree().get_current_scene().spawn_robotito(robotito)
 		
 func sufrir_danio():
-	animation.play("SufrirDanio")
-	health_bar.perder_vida(50)
+	if(self.esta_vivo()):
+		animation.play("SufrirDanio")
+		health_bar.perder_vida(50)
+		
+func esta_vivo():
+	return health_bar.tiene_vida()
 	
 func morir():
 	set_process(false)
 	animation.play("Morir")
-	get_tree().get_current_scene().limpiar_escenario()
+	get_tree().get_current_scene().planificar_limpieza()
 	
 func desaparecer():
 	health_bar.queue_free()
