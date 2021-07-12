@@ -11,6 +11,8 @@ func _ready():
 	$Jugador/Camera2D.zoom *= 2
 	$Jugador/Camera2D.limit_top = -400
 	$Jugador/Camera2D.limit_bottom = 800
+	$Boss.health_bar = $HealthBar/ActualHealth
+	$HealthBar/ActualHealth.boss($Boss)
 	
 func spawn_robotito(robotito):
 	personajes_spawneados.push_back(robotito)
@@ -19,6 +21,15 @@ func spawn_robotito(robotito):
 func despawn_robotito(robotito):
 	personajes_spawneados.erase(robotito)
 	self.remove_child(robotito)
+	
+func desaparecer_spawns():
+	for spawn in personajes_spawneados:
+		spawn.desaparecer()
+		
+#TODO: Por alguna razon no explotan todos los robotitos. Ya probe varias maneras
+func limpiar_escenario():
+	self.desaparecer_spawns()
+	$Boss.desaparecer()
 	
 func spawn_explosion_en(posicion):
 	var explosion = Explosion.instance()

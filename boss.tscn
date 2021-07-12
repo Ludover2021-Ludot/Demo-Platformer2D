@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://area2d_boss.gd" type="Script" id=1]
 [ext_resource path="res://boss.gd" type="Script" id=2]
@@ -7,6 +7,22 @@
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 81.9148
 height = 183.599
+
+[sub_resource type="Animation" id=4]
+resource_name = "Morir"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 56, 57, 58, 59, 60, 61 ]
+}
 
 [sub_resource type="Animation" id=2]
 resource_name = "SufrirDanio"
@@ -48,7 +64,7 @@ scale = Vector2( 5, 5 )
 texture = ExtResource( 3 )
 hframes = 11
 vframes = 6
-frame = 49
+frame = 56
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2( -598.033, -246.329 )
@@ -63,6 +79,7 @@ shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "idle"
+anims/Morir = SubResource( 4 )
 anims/SufrirDanio = SubResource( 2 )
 anims/idle = SubResource( 3 )
 

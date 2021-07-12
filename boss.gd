@@ -10,6 +10,8 @@ const summon_cd = 5
 
 var direccion = 1
 
+var health_bar
+
 onready var animation = $AnimationPlayer
 onready var Robotito = preload("res://Robotito.tscn")
 	
@@ -40,6 +42,16 @@ func crear_robotito():
 		
 func sufrir_danio():
 	animation.play("SufrirDanio")
+	health_bar.perder_vida(50)
+	
+func morir():
+	set_process(false)
+	animation.play("Morir")
+	get_tree().get_current_scene().limpiar_escenario()
+	
+func desaparecer():
+	health_bar.queue_free()
+	queue_free()
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if(anim_name == "SufrirDanio"):

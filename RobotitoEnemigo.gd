@@ -50,6 +50,9 @@ func _on_Area_area_entered(area):
 	
 func invertirGravedad():
 	gravedad.cambiar()
+	
+func desaparecer():
+	self.explotar()
 
 func explotar():
 	var escena = get_tree().get_current_scene()
