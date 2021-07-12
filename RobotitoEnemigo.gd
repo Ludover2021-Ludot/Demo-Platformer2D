@@ -31,8 +31,7 @@ func darse_vuelta():
 	direccion *= -1
 	sprite.flip_h = not sprite.flip_h
 	
-			
-		
+	
 func efecto_gravitatorio():
 	motion.y = motion.y + gravedad.gravedad()
 	sprite.flip_v = gravedad.esta_de_cabeza()
@@ -42,9 +41,21 @@ func tocaste_al_jugador(jugador):
 
 func prenderse():
 	prendido = true
+	
+func apagarse():
+	prendido = false
 
 func _on_Area_area_entered(area):
 	area.chocasteConRobot(self)
 	
 func invertirGravedad():
 	gravedad.cambiar()
+
+func explotar():
+	var escena = get_tree().get_current_scene()
+	escena.despawn_robotito(self)
+	escena.spawn_explosion_en(position)
+	self.queue_free()
+
+func _on_Explosion_animation_finished():
+	self.queue_free()

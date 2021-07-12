@@ -8,7 +8,7 @@
 radius = 81.9148
 height = 183.599
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 resource_name = "SufrirDanio"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -23,8 +23,7 @@ tracks/0/keys = {
 "values": [ 45, 46, 47, 48, 49 ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "idle"
+[sub_resource type="Animation" id=3]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -64,7 +63,7 @@ shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "idle"
-anims/SufrirDanio = SubResource( 3 )
-anims/idle = SubResource( 2 )
+anims/SufrirDanio = SubResource( 2 )
+anims/idle = SubResource( 3 )
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

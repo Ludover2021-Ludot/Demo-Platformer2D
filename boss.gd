@@ -8,8 +8,9 @@ extends Node2D
 var current_summon_cd = 0
 const summon_cd = 5
 
-onready var animation = $AnimationPlayer
+var direccion = 1
 
+onready var animation = $AnimationPlayer
 onready var Robotito = preload("res://Robotito.tscn")
 	
 	
@@ -33,13 +34,12 @@ func puedo_summonear():
 
 func crear_robotito():
 		var robotito = Robotito.instance()
-		robotito.position = position
+		robotito.position = Vector2(position.x + 300 * direccion, position.y)
 		robotito.prenderse()
 		get_tree().get_current_scene().spawn_robotito(robotito)
 		
 func sufrir_danio():
 	animation.play("SufrirDanio")
-
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if(anim_name == "SufrirDanio"):

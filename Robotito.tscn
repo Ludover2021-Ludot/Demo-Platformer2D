@@ -36,7 +36,7 @@ position = Vector2( 2.0542, -1.60065 )
 scale = Vector2( 5, 5 )
 texture = ExtResource( 1 )
 hframes = 4
-frame = 3
+frame = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Sprite")
@@ -53,4 +53,5 @@ shape = SubResource( 2 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -2.24494, 0 )
 shape = SubResource( 3 )
+
 [connection signal="area_entered" from="Area" to="." method="_on_Area_area_entered"]

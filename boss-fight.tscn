@@ -7,7 +7,7 @@
 [ext_resource path="res://HUD.tscn" type="PackedScene" id=6]
 [ext_resource path="res://TransicionNivel.tscn" type="PackedScene" id=7]
 
-[node name="Node2D" type="Node2D"]
+[node name="BossFight" type="Node2D"]
 script = ExtResource( 1 )
 personajes = [ NodePath("Jugador") ]
 
@@ -17,7 +17,7 @@ tile_data = PoolIntArray( -327680, 0, 0, -327679, 0, 0, -327678, 0, 0, -327677, 
 [node name="Jugador" parent="." instance=ExtResource( 2 )]
 position = Vector2( 127.279, 456.791 )
 
-[node name="Node2D" parent="." instance=ExtResource( 4 )]
+[node name="Boss" parent="." instance=ExtResource( 4 )]
 position = Vector2( 802.326, 26.6888 )
 
 [node name="HUD" parent="." instance=ExtResource( 6 )]
