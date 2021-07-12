@@ -1,0 +1,36 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://boss-fight.gd" type="Script" id=1]
+[ext_resource path="res://Jugador.tscn" type="PackedScene" id=2]
+[ext_resource path="res://TileMap.tscn" type="PackedScene" id=3]
+[ext_resource path="res://boss.tscn" type="PackedScene" id=4]
+[ext_resource path="res://HealthBar.tscn" type="PackedScene" id=5]
+[ext_resource path="res://HUD.tscn" type="PackedScene" id=6]
+[ext_resource path="res://TransicionNivel.tscn" type="PackedScene" id=7]
+
+[node name="BossFight" type="Node2D"]
+script = ExtResource( 1 )
+personajes = [ NodePath("Jugador") ]
+
+[node name="TileMap" parent="." instance=ExtResource( 3 )]
+tile_data = PoolIntArray( -327680, 0, 0, -327679, 0, 0, -327678, 0, 0, -327677, 0, 0, -327676, 0, 0, -327675, 0, 0, -327674, 0, 0, -327673, 0, 0, -327672, 0, 0, -327671, 0, 0, -327670, 0, 0, -327669, 0, 0, -327668, 0, 0, -327667, 0, 0, -327666, 0, 0, -327665, 0, 0, -327664, 0, 0, -327663, 0, 0, -327662, 0, 0, -327661, 0, 0, -327660, 0, 0, -327659, 0, 0, -327658, 0, 0, -327657, 0, 0, -327656, 0, 0, -327655, 0, 0, -327654, 0, 0, -327653, 0, 0, -327652, 0, 0, -327651, 0, 0, -327650, 0, 0, -327649, 0, 0, -327648, 0, 0, -327647, 0, 0, -327646, 0, 0, -327645, 0, 0, -327644, 0, 0, -327643, 0, 0, -327642, 0, 0, -327641, 0, 0, -262144, 0, 0, -262105, 0, 0, -196608, 0, 0, -196569, 0, 0, -131072, 0, 0, -131033, 0, 0, -65536, 0, 0, -65497, 0, 0, 0, 0, 0, 39, 0, 0, 65536, 0, 0, 65575, 0, 0, 131072, 0, 0, 131111, 0, 0, 196608, 0, 0, 196647, 0, 0, 262144, 0, 0, 262153, 0, 0, 262154, 0, 0, 262155, 0, 0, 262156, 0, 0, 262157, 0, 0, 262158, 0, 0, 262159, 0, 0, 262160, 0, 0, 262161, 0, 0, 262162, 0, 0, 262163, 0, 0, 262164, 0, 0, 262165, 0, 0, 262166, 0, 0, 262167, 0, 0, 262168, 0, 0, 262169, 0, 0, 262170, 0, 0, 262171, 0, 0, 262172, 0, 0, 262173, 0, 0, 262174, 0, 0, 262175, 0, 0, 262183, 0, 0, 327680, 0, 0, 327719, 0, 0, 393216, 0, 0, 393255, 0, 0, 458752, 0, 0, 458791, 0, 0, 524288, 0, 0, 524327, 0, 0, 589824, 0, 0, 589863, 0, 0, 655360, 0, 0, 655399, 0, 0, 720896, 0, 0, 720935, 0, 0, 786432, 0, 0, 786471, 0, 0, 851968, 0, 0, 851969, 0, 0, 851970, 0, 0, 851971, 0, 0, 851972, 0, 0, 851973, 0, 0, 851974, 0, 0, 851975, 0, 0, 851976, 0, 0, 851977, 0, 0, 851978, 0, 0, 851979, 0, 0, 851980, 0, 0, 851981, 0, 0, 851982, 0, 0, 851983, 0, 0, 851984, 0, 0, 851985, 0, 0, 851986, 0, 0, 851987, 0, 0, 851988, 0, 0, 851989, 0, 0, 851990, 0, 0, 851991, 0, 0, 851992, 0, 0, 851993, 0, 0, 851994, 0, 0, 851995, 0, 0, 851996, 0, 0, 851997, 0, 0, 851998, 0, 0, 851999, 0, 0, 852000, 0, 0, 852001, 0, 0, 852002, 0, 0, 852003, 0, 0, 852004, 0, 0, 852005, 0, 0, 852006, 0, 0, 852007, 0, 0 )
+
+[node name="Jugador" parent="." instance=ExtResource( 2 )]
+position = Vector2( 127.279, 456.791 )
+
+[node name="Boss" parent="." instance=ExtResource( 4 )]
+position = Vector2( 802.326, 26.6888 )
+
+[node name="HUD" parent="." instance=ExtResource( 6 )]
+
+[node name="TransicionNivel" parent="." instance=ExtResource( 7 )]
+position = Vector2( 73.4125, -253.69 )
+
+[node name="HealthBar" parent="." instance=ExtResource( 5 )]
+position = Vector2( 576.945, -101.022 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
